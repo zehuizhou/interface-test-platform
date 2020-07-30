@@ -1,0 +1,13 @@
+package com.rabbit.model.po;
+
+import lombok.Data;
+
+import java.io.Serializable;
+
+@Data
+public class Header implements Serializable {
+    private String key;
+    private String value;
+    private String remark;
+    private static final long serialVersionUID = 1L;
+}

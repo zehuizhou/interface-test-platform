@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.TStepUiNewMapper">
+  <resultMap id="BaseResultMap" type="com.rabbit.model.TStepUiNew">
+    <!--@mbg.generated-->
+    <!--@Table t_step_ui_new-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="action_type" jdbcType="VARCHAR" property="actionType" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="action_remark" jdbcType="LONGVARCHAR" property="actionRemark" />
+    <result column="testcase_id" jdbcType="BIGINT" property="testcaseId" />
+    <result column="page_id" jdbcType="BIGINT" property="pageId" />
+    <result column="element_id" jdbcType="BIGINT" property="elementId" />
+    <result column="option_data" jdbcType="VARCHAR" property="optionData" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="sort" jdbcType="BIGINT" property="sort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, action_type, `action`, action_remark, testcase_id, page_id, element_id, 
+    option_data, `type`, create_by, create_time, update_by, update_time, sort
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_step_ui_new
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_step_ui_new
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TStepUiNew" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_step_ui_new (`name`, action_type, `action`, 
+      action_remark, testcase_id, page_id, 
+      element_id, option_data, `type`, 
+      create_by, create_time, update_by, 
+      update_time, sort)
+    values (#{name,jdbcType=VARCHAR}, #{actionType,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, 
+      #{actionRemark,jdbcType=LONGVARCHAR}, #{testcaseId,jdbcType=BIGINT}, #{pageId,jdbcType=BIGINT}, 
+      #{elementId,jdbcType=BIGINT}, #{optionData,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{sort,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TStepUiNew" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_step_ui_new
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null and name != ''">
+        `name`,
+      </if>
+      <if test="actionType != null and actionType != ''">
+        action_type,
+      </if>
+      <if test="action != null and action != ''">
+        `action`,
+      </if>
+      <if test="actionRemark != null and actionRemark != ''">
+        action_remark,
+      </if>
+      <if test="testcaseId != null">
+        testcase_id,
+      </if>
+      <if test="pageId != null">
+        page_id,
+      </if>
+      <if test="elementId != null">
+        element_id,
+      </if>
+      <if test="optionData != null and optionData != ''">
+        option_data,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null and name != ''">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="actionType != null and actionType != ''">
+        #{actionType,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null and action != ''">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="actionRemark != null and actionRemark != ''">
+        #{actionRemark,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="testcaseId != null">
+        #{testcaseId,jdbcType=BIGINT},
+      </if>
+      <if test="pageId != null">
+        #{pageId,jdbcType=BIGINT},
+      </if>
+      <if test="elementId != null">
+        #{elementId,jdbcType=BIGINT},
+      </if>
+      <if test="optionData != null and optionData != ''">
+        #{optionData,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.TStepUiNew">
+    <!--@mbg.generated-->
+    update t_step_ui_new
+    <set>
+      <if test="name != null and name != ''">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="actionType != null and actionType != ''">
+        action_type = #{actionType,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null and action != ''">
+        `action` = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="actionRemark != null and actionRemark != ''">
+        action_remark = #{actionRemark,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="testcaseId != null">
+        testcase_id = #{testcaseId,jdbcType=BIGINT},
+      </if>
+      <if test="pageId != null">
+        page_id = #{pageId,jdbcType=BIGINT},
+      </if>
+      <if test="elementId != null">
+        element_id = #{elementId,jdbcType=BIGINT},
+      </if>
+      <if test="optionData != null and optionData != ''">
+        option_data = #{optionData,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rabbit.model.TStepUiNew">
+    <!--@mbg.generated-->
+    update t_step_ui_new
+    set `name` = #{name,jdbcType=VARCHAR},
+      action_type = #{actionType,jdbcType=VARCHAR},
+      `action` = #{action,jdbcType=VARCHAR},
+      action_remark = #{actionRemark,jdbcType=LONGVARCHAR},
+      testcase_id = #{testcaseId,jdbcType=BIGINT},
+      page_id = #{pageId,jdbcType=BIGINT},
+      element_id = #{elementId,jdbcType=BIGINT},
+      option_data = #{optionData,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      sort = #{sort,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-14-->
+    <select id="findByTestcaseId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_step_ui_new
+        where testcase_id=#{testcaseId,jdbcType=BIGINT}
+        order by sort
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-18-->
+    <delete id="deleteByTestcaseId">
+        delete from t_step_ui_new
+        where testcase_id=#{testcaseId,jdbcType=BIGINT}
+    </delete>
+
+<!--auto generated by MybatisCodeHelper on 2020-06-07-->
+  <insert id="insertList" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_step_ui_new(
+        name,
+        action_type,
+        action,
+        action_remark,
+        testcase_id,
+        page_id,
+        element_id,
+        option_data,
+        type,
+        create_by,
+        update_by,
+        sort
+        )VALUES
+        <foreach collection="list" item="element" index="index" separator=",">
+            (
+            #{element.name,jdbcType=VARCHAR},
+            #{element.actionType,jdbcType=VARCHAR},
+            #{element.action,jdbcType=VARCHAR},
+            #{element.actionRemark,jdbcType=LONGVARCHAR},
+            #{element.testcaseId,jdbcType=BIGINT},
+            #{element.pageId,jdbcType=BIGINT},
+            #{element.elementId,jdbcType=BIGINT},
+            #{element.optionData,jdbcType=VARCHAR},
+            #{element.type,jdbcType=INTEGER},
+            #{element.createBy,jdbcType=VARCHAR},
+            #{element.updateBy,jdbcType=VARCHAR},
+            #{element.sort,jdbcType=BIGINT}
+            )
+        </foreach>
+    </insert>
+
+<!--auto generated by MybatisCodeHelper on 2020-06-16-->
+  <select id="findByActionTypeAndElementId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_step_ui_new
+        where action_type=#{actionType,jdbcType=VARCHAR} and element_id=#{elementId,jdbcType=BIGINT}
+    </select>
+</mapper>

@@ -1,0 +1,78 @@
+2020-07-29 10:28:59,300 [main] INFO  -[StartupInfoLogger.java:50]- Starting RabbitPlatformServerApplication v0.0.1-SNAPSHOT on zhoudeMacBook-Pro.local with PID 62796 (/Users/zhou/IdeaProjects/rabbit_test_platform_server/target/rabbit-platform-server-0.0.1-SNAPSHOT.jar started by zhou in /Users/zhou/IdeaProjects/rabbit_test_platform_server/target)
+2020-07-29 10:28:59,304 [main] DEBUG -[StartupInfoLogger.java:53]- Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2020-07-29 10:28:59,307 [main] INFO  -[SpringApplication.java:654]- No active profile set, falling back to default profiles: default
+2020-07-29 10:29:07,459 [localhost-startStop-1] DEBUG -[GenericFilterBean.java:213]- Initializing filter 'tokenFilter'
+2020-07-29 10:29:07,460 [localhost-startStop-1] DEBUG -[GenericFilterBean.java:244]- Filter 'tokenFilter' configured successfully
+2020-07-29 10:29:08,477 [main] DEBUG -[BaseJdbcLogger.java:159]- ==>  Preparing: select id, `name`, project_ids, client_ip, client_port, is_enable, `status`, java_version, jmeter_version, appium_version, os_name, remark, create_by, create_time, update_by, update_time from t_client where `status`=? 
+2020-07-29 10:29:08,668 [main] DEBUG -[BaseJdbcLogger.java:159]- ==> Parameters: 1(Integer)
+2020-07-29 10:29:08,704 [main] DEBUG -[BaseJdbcLogger.java:159]- <==      Total: 0
+2020-07-29 10:29:08,953 [main] DEBUG -[BaseJdbcLogger.java:159]- ==>  Preparing: select job_id, job_name, job_group, job_type, project_id, method_name, method_params, cron_expression, misfire_policy, status, create_by, create_time, remark from sys_job 
+2020-07-29 10:29:08,954 [main] DEBUG -[BaseJdbcLogger.java:159]- ==> Parameters: 
+2020-07-29 10:29:08,976 [main] DEBUG -[BaseJdbcLogger.java:159]- <==      Total: 5
+2020-07-29 10:29:16,713 [main] INFO  -[StartupInfoLogger.java:59]- Started RabbitPlatformServerApplication in 18.055 seconds (JVM running for 18.651)
+2020-07-29 10:29:26,338 [main] INFO  -[StartupInfoLogger.java:50]- Starting RabbitPlatformServerApplication v0.0.1-SNAPSHOT on zhoudeMacBook-Pro.local with PID 62804 (/Users/zhou/IdeaProjects/rabbit_test_platform_server/target/rabbit-platform-server-0.0.1-SNAPSHOT.jar started by zhou in /Users/zhou/IdeaProjects/rabbit_test_platform_server/target)
+2020-07-29 10:29:26,342 [main] DEBUG -[StartupInfoLogger.java:53]- Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2020-07-29 10:29:26,344 [main] INFO  -[SpringApplication.java:654]- No active profile set, falling back to default profiles: default
+2020-07-29 10:29:30,002 [schedule-pool-1] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:29:33,531 [localhost-startStop-1] DEBUG -[GenericFilterBean.java:213]- Initializing filter 'tokenFilter'
+2020-07-29 10:29:33,531 [localhost-startStop-1] DEBUG -[GenericFilterBean.java:244]- Filter 'tokenFilter' configured successfully
+2020-07-29 10:29:34,230 [main] DEBUG -[BaseJdbcLogger.java:159]- ==>  Preparing: select id, `name`, project_ids, client_ip, client_port, is_enable, `status`, java_version, jmeter_version, appium_version, os_name, remark, create_by, create_time, update_by, update_time from t_client where `status`=? 
+2020-07-29 10:29:34,410 [main] DEBUG -[BaseJdbcLogger.java:159]- ==> Parameters: 1(Integer)
+2020-07-29 10:29:34,451 [main] DEBUG -[BaseJdbcLogger.java:159]- <==      Total: 0
+2020-07-29 10:29:34,980 [main] DEBUG -[BaseJdbcLogger.java:159]- ==>  Preparing: select job_id, job_name, job_group, job_type, project_id, method_name, method_params, cron_expression, misfire_policy, status, create_by, create_time, remark from sys_job 
+2020-07-29 10:29:34,981 [main] DEBUG -[BaseJdbcLogger.java:159]- ==> Parameters: 
+2020-07-29 10:29:35,003 [main] DEBUG -[BaseJdbcLogger.java:159]- <==      Total: 5
+2020-07-29 10:30:00,004 [schedule-pool-1] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:30:30,002 [schedule-pool-2] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:31:00,001 [schedule-pool-1] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:31:30,001 [schedule-pool-3] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:32:00,004 [schedule-pool-2] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:32:30,003 [schedule-pool-4] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:33:00,003 [schedule-pool-1] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:33:30,006 [schedule-pool-5] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:34:00,004 [schedule-pool-3] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:34:30,001 [schedule-pool-6] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:35:00,001 [schedule-pool-2] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:35:30,002 [schedule-pool-7] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:36:00,000 [schedule-pool-4] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:36:30,001 [schedule-pool-8] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:36:37,515 [main] INFO  -[StartupInfoLogger.java:50]- Starting RabbitPlatformServerApplication v0.0.1-SNAPSHOT on zhoudeMacBook-Pro.local with PID 62828 (/Users/zhou/IdeaProjects/rabbit_test_platform_server/target/rabbit-platform-server-0.0.1-SNAPSHOT.jar started by zhou in /Users/zhou/IdeaProjects/rabbit_test_platform_server/target)
+2020-07-29 10:36:37,519 [main] DEBUG -[StartupInfoLogger.java:53]- Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2020-07-29 10:36:37,522 [main] INFO  -[SpringApplication.java:654]- No active profile set, falling back to default profiles: default
+2020-07-29 10:36:44,494 [localhost-startStop-1] DEBUG -[GenericFilterBean.java:213]- Initializing filter 'tokenFilter'
+2020-07-29 10:36:44,500 [localhost-startStop-1] DEBUG -[GenericFilterBean.java:244]- Filter 'tokenFilter' configured successfully
+2020-07-29 10:36:45,222 [main] DEBUG -[BaseJdbcLogger.java:159]- ==>  Preparing: select id, `name`, project_ids, client_ip, client_port, is_enable, `status`, java_version, jmeter_version, appium_version, os_name, remark, create_by, create_time, update_by, update_time from t_client where `status`=? 
+2020-07-29 10:36:45,411 [main] DEBUG -[BaseJdbcLogger.java:159]- ==> Parameters: 1(Integer)
+2020-07-29 10:36:45,444 [main] DEBUG -[BaseJdbcLogger.java:159]- <==      Total: 0
+2020-07-29 10:36:45,996 [main] DEBUG -[BaseJdbcLogger.java:159]- ==>  Preparing: select job_id, job_name, job_group, job_type, project_id, method_name, method_params, cron_expression, misfire_policy, status, create_by, create_time, remark from sys_job 
+2020-07-29 10:36:45,997 [main] DEBUG -[BaseJdbcLogger.java:159]- ==> Parameters: 
+2020-07-29 10:36:46,021 [main] DEBUG -[BaseJdbcLogger.java:159]- <==      Total: 5
+2020-07-29 10:37:00,004 [schedule-pool-1] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:37:30,006 [schedule-pool-9] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:38:00,004 [schedule-pool-5] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:38:30,001 [schedule-pool-10] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:39:00,002 [schedule-pool-3] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:39:30,004 [schedule-pool-11] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:40:00,003 [schedule-pool-6] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:40:23,491 [main] INFO  -[StartupInfoLogger.java:50]- Starting RabbitPlatformServerApplication v0.0.1-SNAPSHOT on zhoudeMacBook-Pro.local with PID 62861 (/Users/zhou/IdeaProjects/rabbit_test_platform_server/target/rabbit-platform-server-0.0.1-SNAPSHOT.jar started by zhou in /Users/zhou/IdeaProjects/rabbit_test_platform_server/target)
+2020-07-29 10:40:23,494 [main] DEBUG -[StartupInfoLogger.java:53]- Running with Spring Boot v2.0.7.RELEASE, Spring v5.0.11.RELEASE
+2020-07-29 10:40:23,497 [main] INFO  -[SpringApplication.java:654]- No active profile set, falling back to default profiles: default
+2020-07-29 10:40:30,378 [localhost-startStop-1] DEBUG -[GenericFilterBean.java:213]- Initializing filter 'tokenFilter'
+2020-07-29 10:40:30,379 [localhost-startStop-1] DEBUG -[GenericFilterBean.java:244]- Filter 'tokenFilter' configured successfully
+2020-07-29 10:40:31,137 [main] DEBUG -[BaseJdbcLogger.java:159]- ==>  Preparing: select id, `name`, project_ids, client_ip, client_port, is_enable, `status`, java_version, jmeter_version, appium_version, os_name, remark, create_by, create_time, update_by, update_time from t_client where `status`=? 
+2020-07-29 10:40:31,334 [main] DEBUG -[BaseJdbcLogger.java:159]- ==> Parameters: 1(Integer)
+2020-07-29 10:40:31,372 [main] DEBUG -[BaseJdbcLogger.java:159]- <==      Total: 0
+2020-07-29 10:40:31,945 [main] DEBUG -[BaseJdbcLogger.java:159]- ==>  Preparing: select job_id, job_name, job_group, job_type, project_id, method_name, method_params, cron_expression, misfire_policy, status, create_by, create_time, remark from sys_job 
+2020-07-29 10:40:31,946 [main] DEBUG -[BaseJdbcLogger.java:159]- ==> Parameters: 
+2020-07-29 10:40:31,975 [main] DEBUG -[BaseJdbcLogger.java:159]- <==      Total: 5
+2020-07-29 10:40:39,227 [main] INFO  -[StartupInfoLogger.java:59]- Started RabbitPlatformServerApplication in 16.346 seconds (JVM running for 16.969)
+2020-07-29 10:41:00,004 [schedule-pool-1] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:41:30,001 [schedule-pool-1] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:42:00,002 [schedule-pool-2] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:42:30,001 [schedule-pool-1] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:43:00,005 [schedule-pool-3] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:43:30,004 [schedule-pool-2] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:44:00,002 [schedule-pool-4] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:44:30,003 [schedule-pool-1] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:45:00,003 [schedule-pool-5] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端
+2020-07-29 10:45:30,005 [schedule-pool-3] INFO  -[ClientServiceImpl.java:123]- 同步在线客户端，还有0个在线客户端

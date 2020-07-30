@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.rabbit.myTest.XmlTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in com.rabbit.myTest.XmlTest
+file(com.rabbit.myTest.XmlTest)  Time elapsed: 0 s  <<< ERROR!
+org.dom4j.DocumentException: G:\桌面临时空间\ecm_jmeter\test\94e0d6c6-e40d-4e95-9d65-b5e30f2a34e3\result\logs\test.xml (No such file or directory) Nested exception: G:\桌面临时空间\ecm_jmeter\test\94e0d6c6-e40d-4e95-9d65-b5e30f2a34e3\result\logs\test.xml (No such file or directory)
+	at com.rabbit.myTest.XmlTest.file(XmlTest.java:14)
+

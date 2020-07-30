@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.TFileInfoMapper">
+  <resultMap id="BaseResultMap" type="com.rabbit.model.TFileInfo">
+    <!--@mbg.generated-->
+    <!--@Table t_file_info-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="project_id" jdbcType="BIGINT" property="projectId" />
+    <result column="md5" jdbcType="VARCHAR" property="md5" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="size" jdbcType="BIGINT" property="size" />
+    <result column="source_id" jdbcType="BIGINT" property="sourceId" />
+    <result column="source_type" jdbcType="INTEGER" property="sourceType" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, project_id, md5, content_type, `size`, source_id, source_type, `path`, 
+    `type`, create_by, create_time, update_by, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_file_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_file_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TFileInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_file_info (`name`, project_id, md5, 
+      content_type, `size`, source_id, 
+      source_type, `path`, `type`, 
+      create_by, create_time, update_by, 
+      update_time)
+    values (#{name,jdbcType=VARCHAR}, #{projectId,jdbcType=BIGINT}, #{md5,jdbcType=VARCHAR}, 
+      #{contentType,jdbcType=VARCHAR}, #{size,jdbcType=BIGINT}, #{sourceId,jdbcType=BIGINT}, 
+      #{sourceType,jdbcType=INTEGER}, #{path,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TFileInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_file_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null and name != ''">
+        `name`,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+      <if test="md5 != null and md5 != ''">
+        md5,
+      </if>
+      <if test="contentType != null and contentType != ''">
+        content_type,
+      </if>
+      <if test="size != null">
+        `size`,
+      </if>
+      <if test="sourceId != null">
+        source_id,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="path != null and path != ''">
+        `path`,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null and name != ''">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="md5 != null and md5 != ''">
+        #{md5,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null and contentType != ''">
+        #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=BIGINT},
+      </if>
+      <if test="sourceId != null">
+        #{sourceId,jdbcType=BIGINT},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="path != null and path != ''">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.TFileInfo">
+    <!--@mbg.generated-->
+    update t_file_info
+    <set>
+      <if test="name != null and name != ''">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null">
+        project_id = #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="md5 != null and md5 != ''">
+        md5 = #{md5,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null and contentType != ''">
+        content_type = #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        `size` = #{size,jdbcType=BIGINT},
+      </if>
+      <if test="sourceId != null">
+        source_id = #{sourceId,jdbcType=BIGINT},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="path != null and path != ''">
+        `path` = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rabbit.model.TFileInfo">
+    <!--@mbg.generated-->
+    update t_file_info
+    set `name` = #{name,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=BIGINT},
+      md5 = #{md5,jdbcType=VARCHAR},
+      content_type = #{contentType,jdbcType=VARCHAR},
+      `size` = #{size,jdbcType=BIGINT},
+      source_id = #{sourceId,jdbcType=BIGINT},
+      source_type = #{sourceType,jdbcType=INTEGER},
+      `path` = #{path,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-12-24-->
+  <select id="findBySourceTypeAndSourceIdAndName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_file_info
+        where source_type=#{sourceType,jdbcType=INTEGER} and source_id=#{sourceId,jdbcType=BIGINT} and
+        `name`=#{name,jdbcType=VARCHAR}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-12-24-->
+  <select id="findBySourceTypeAndSourceIdAndNameAndIdNot" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_file_info
+    where source_type=#{sourceType,jdbcType=INTEGER} and source_id=#{sourceId,jdbcType=BIGINT} and
+    `name`=#{name,jdbcType=VARCHAR} and id <![CDATA[<>]]> #{notId,jdbcType=BIGINT}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-12-24-->
+  <select id="findByAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_file_info
+    <where>
+      <if test="id != null">
+        and id=#{id,jdbcType=BIGINT}
+      </if>
+      <if test="name != null and name != ''">
+        and `name`=#{name,jdbcType=VARCHAR}
+      </if>
+      <if test="projectId != null">
+        and project_id=#{projectId,jdbcType=BIGINT}
+      </if>
+      <if test="md5 != null and md5 != ''">
+        and md5=#{md5,jdbcType=VARCHAR}
+      </if>
+      <if test="contentType != null and contentType != ''">
+        and content_type=#{contentType,jdbcType=VARCHAR}
+      </if>
+      <if test="size != null">
+        and `size`=#{size,jdbcType=BIGINT}
+      </if>
+      <if test="sourceId != null">
+        and source_id=#{sourceId,jdbcType=BIGINT}
+      </if>
+      <if test="sourceType != null">
+        and source_type=#{sourceType,jdbcType=INTEGER}
+      </if>
+      <if test="path != null and path != ''">
+        and `path`=#{path,jdbcType=VARCHAR}
+      </if>
+      <if test="type != null">
+        and `type`=#{type,jdbcType=INTEGER}
+      </if>
+      <if test="createBy != null and createBy != ''">
+        and create_by=#{createBy,jdbcType=VARCHAR}
+      </if>
+      <if test="createTime != null">
+        and create_time=#{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        and update_by=#{updateBy,jdbcType=VARCHAR}
+      </if>
+      <if test="updateTime != null">
+        and update_time=#{updateTime,jdbcType=TIMESTAMP}
+      </if>
+    </where>
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-01-03-->
+  <delete id="deleteBySourceTypeAndSourceId">
+        delete from t_file_info
+        where source_type=#{sourceType,jdbcType=INTEGER} and source_id=#{sourceId,jdbcType=BIGINT}
+    </delete>
+
+<!--auto generated by MybatisCodeHelper on 2020-01-03-->
+  <select id="findBySourceTypeAndSourceId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_file_info
+    where source_type=#{sourceType,jdbcType=INTEGER} and source_id=#{sourceId,jdbcType=BIGINT}
+  </select>
+</mapper>

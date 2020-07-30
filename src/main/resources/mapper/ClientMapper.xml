@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.ClientMapper">
+    <resultMap id="BaseResultMap" type="com.rabbit.model.Client">
+        <!--@mbg.generated-->
+        <!--@Table t_client-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="project_ids" jdbcType="VARCHAR" property="projectIds"/>
+        <result column="client_ip" jdbcType="VARCHAR" property="clientIp"/>
+        <result column="client_port" jdbcType="INTEGER" property="clientPort"/>
+        <result column="is_enable" jdbcType="INTEGER" property="isEnable"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="java_version" jdbcType="VARCHAR" property="javaVersion"/>
+        <result column="jmeter_version" jdbcType="VARCHAR" property="jmeterVersion"/>
+        <result column="appium_version" jdbcType="VARCHAR" property="appiumVersion"/>
+        <result column="os_name" jdbcType="VARCHAR" property="osName"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `name`, project_ids, client_ip, client_port, is_enable, `status`, java_version,
+        jmeter_version, appium_version, os_name, remark, create_by, create_time, update_by,
+        update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from t_client
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.Client" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_client (`name`, project_ids, client_ip,
+        client_port, is_enable, `status`,
+        java_version, jmeter_version, appium_version,
+        os_name, remark, create_by,
+        create_time, update_by, update_time
+        )
+        values (#{name,jdbcType=VARCHAR}, #{projectIds,jdbcType=VARCHAR}, #{clientIp,jdbcType=VARCHAR},
+        #{clientPort,jdbcType=INTEGER}, #{isEnable,jdbcType=INTEGER}, #{status,jdbcType=INTEGER},
+        #{javaVersion,jdbcType=VARCHAR}, #{jmeterVersion,jdbcType=VARCHAR}, #{appiumVersion,jdbcType=VARCHAR},
+        #{osName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR},
+        #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.Client"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_client
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                `name`,
+            </if>
+            <if test="projectIds != null and projectIds != ''">
+                project_ids,
+            </if>
+            <if test="clientIp != null and clientIp != ''">
+                client_ip,
+            </if>
+            <if test="clientPort != null">
+                client_port,
+            </if>
+            <if test="isEnable != null">
+                is_enable,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="javaVersion != null and javaVersion != ''">
+                java_version,
+            </if>
+            <if test="jmeterVersion != null and jmeterVersion != ''">
+                jmeter_version,
+            </if>
+            <if test="appiumVersion != null and appiumVersion != ''">
+                appium_version,
+            </if>
+            <if test="osName != null and osName != ''">
+                os_name,
+            </if>
+            <if test="remark != null and remark != ''">
+                remark,
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="projectIds != null and projectIds != ''">
+                #{projectIds,jdbcType=VARCHAR},
+            </if>
+            <if test="clientIp != null and clientIp != ''">
+                #{clientIp,jdbcType=VARCHAR},
+            </if>
+            <if test="clientPort != null">
+                #{clientPort,jdbcType=INTEGER},
+            </if>
+            <if test="isEnable != null">
+                #{isEnable,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="javaVersion != null and javaVersion != ''">
+                #{javaVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="jmeterVersion != null and jmeterVersion != ''">
+                #{jmeterVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="appiumVersion != null and appiumVersion != ''">
+                #{appiumVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="osName != null and osName != ''">
+                #{osName,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null and remark != ''">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.Client">
+        <!--@mbg.generated-->
+        update t_client
+        <set>
+            <if test="name != null and name != ''">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="projectIds != null and projectIds != ''">
+                project_ids = #{projectIds,jdbcType=VARCHAR},
+            </if>
+            <if test="clientIp != null and clientIp != ''">
+                client_ip = #{clientIp,jdbcType=VARCHAR},
+            </if>
+            <if test="clientPort != null">
+                client_port = #{clientPort,jdbcType=INTEGER},
+            </if>
+            <if test="isEnable != null">
+                is_enable = #{isEnable,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="javaVersion != null and javaVersion != ''">
+                java_version = #{javaVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="jmeterVersion != null and jmeterVersion != ''">
+                jmeter_version = #{jmeterVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="appiumVersion != null and appiumVersion != ''">
+                appium_version = #{appiumVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="osName != null and osName != ''">
+                os_name = #{osName,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.rabbit.model.Client">
+        <!--@mbg.generated-->
+        update t_client
+        set `name` = #{name,jdbcType=VARCHAR},
+        project_ids = #{projectIds,jdbcType=VARCHAR},
+        client_ip = #{clientIp,jdbcType=VARCHAR},
+        client_port = #{clientPort,jdbcType=INTEGER},
+        is_enable = #{isEnable,jdbcType=INTEGER},
+        `status` = #{status,jdbcType=INTEGER},
+        java_version = #{javaVersion,jdbcType=VARCHAR},
+        jmeter_version = #{jmeterVersion,jdbcType=VARCHAR},
+        appium_version = #{appiumVersion,jdbcType=VARCHAR},
+        os_name = #{osName,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        create_by = #{createBy,jdbcType=VARCHAR},
+        update_by = #{updateBy,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-05-10-->
+    <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+        where 1=1
+        <if test="id != null">
+            and id=#{id,jdbcType=INTEGER}
+        </if>
+        <if test="name != null and name != ''">
+            and `name`=#{name,jdbcType=VARCHAR}
+        </if>
+        <if test="projectIds != null and projectIds != ''">
+            and FIND_IN_SET(#{projectIds,jdbcType=VARCHAR},project_ids)
+        </if>
+        <if test="clientIp != null and clientIp != ''">
+            and client_ip=#{clientIp,jdbcType=VARCHAR}
+        </if>
+        <if test="clientPort != null">
+            and client_port=#{clientPort,jdbcType=INTEGER}
+        </if>
+        <if test="isEnable != null">
+            and is_enable=#{isEnable,jdbcType=INTEGER}
+        </if>
+        <if test="status != null">
+            and `status`=#{status,jdbcType=INTEGER}
+        </if>
+        <if test="createBy != null and createBy != ''">
+            and create_by=#{createBy,jdbcType=VARCHAR}
+        </if>
+        <if test="createTime != null">
+            and create_time=#{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateBy != null and updateBy != ''">
+            and update_by=#{updateBy,jdbcType=VARCHAR}
+        </if>
+        <if test="updateTime != null">
+            and update_time=#{updateTime,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-05-15-->
+    <select id="findByIdIn" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+        where id in
+        <foreach close=")" collection="idCollection" index="index" item="item" open="(" separator=",">
+            #{item,jdbcType=INTEGER}
+        </foreach>
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-05-17-->
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-05-21-->
+    <select id="findById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+        where id=#{id,jdbcType=INTEGER}
+    </select>
+
+
+    <!--auto generated by MybatisCodeHelper on 2019-06-10-->
+    <select id="findByProjectId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+        where find_in_set(#{projectId,jdbcType=BIGINT},project_ids)
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-10-16-->
+    <select id="findByStatus" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+        where `status`=#{status,jdbcType=INTEGER}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-10-18-->
+    <select id="selectByClientIpAndClientPort" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+        where client_ip=#{clientIp,jdbcType=VARCHAR} and client_port=#{clientPort,jdbcType=INTEGER}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-10-18-->
+    <update id="updateByClientIpAndClientPort">
+        update t_client
+        <set>
+            <if test="updated.id != null">
+                id = #{updated.id,jdbcType=INTEGER},
+            </if>
+            <if test="updated.name != null and updated.name != ''">
+                name = #{updated.name,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.projectIds != null and updated.projectIds != ''">
+                project_id = #{updated.projectIds,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.clientIp != null and updated.clientIp != ''">
+                client_ip = #{updated.clientIp,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.clientPort != null">
+                client_port = #{updated.clientPort,jdbcType=INTEGER},
+            </if>
+            <if test="updated.isEnable != null">
+                is_enable = #{updated.isEnable,jdbcType=INTEGER},
+            </if>
+            <if test="updated.status != null">
+                status = #{updated.status,jdbcType=INTEGER},
+            </if>
+            <if test="updated.javaVersion != null and updated.javaVersion != ''">
+                java_version = #{updated.javaVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.jmeterVersion != null and updated.jmeterVersion != ''">
+                jmeter_version = #{updated.jmeterVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.appiumVersion != null and updated.appiumVersion != ''">
+                appium_version = #{updated.appiumVersion,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.osName != null and updated.osName != ''">
+                os_name = #{updated.osName,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.remark != null and updated.remark != ''">
+                remark = #{updated.remark,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.createBy != null and updated.createBy != ''">
+                create_by = #{updated.createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.createTime != null">
+                create_time = #{updated.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updated.updateBy != null and updated.updateBy != ''">
+                update_by = #{updated.updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.updateTime != null">
+                update_time = #{updated.updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where client_ip=#{clientIp,jdbcType=VARCHAR} and client_port=#{clientPort,jdbcType=INTEGER}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-10-23-->
+    <select id="findByName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+        where `name`=#{name,jdbcType=VARCHAR}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-11-->
+    <select id="findByRemarkAndIdNot" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_client
+        where remark=#{remark,jdbcType=VARCHAR} and id <![CDATA[<>]]> #{notId,jdbcType=BIGINT}
+    </select>
+
+</mapper>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.TTestStepUiNewLogMapper">
+  <resultMap id="BaseResultMap" type="com.rabbit.model.TTestStepUiNewLog">
+    <!--@mbg.generated-->
+    <!--@Table t_test_step_ui_new_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="plan_job_id" jdbcType="BIGINT" property="planJobId" />
+    <result column="case_log_id" jdbcType="INTEGER" property="caseLogId" />
+    <result column="step_id" jdbcType="BIGINT" property="stepId" />
+    <result column="step_name" jdbcType="VARCHAR" property="stepName" />
+    <result column="case_id" jdbcType="BIGINT" property="caseId" />
+    <result column="case_name" jdbcType="VARCHAR" property="caseName" />
+    <result column="log_detail" jdbcType="LONGVARCHAR" property="logDetail" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="end_flag" jdbcType="INTEGER" property="endFlag" />
+    <result column="imgname" jdbcType="VARCHAR" property="imgname" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, plan_job_id, case_log_id, step_id, step_name, case_id, case_name, log_detail, 
+    `status`, `type`, end_time, end_flag, imgname, create_by, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_test_step_ui_new_log
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_test_step_ui_new_log
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TTestStepUiNewLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_test_step_ui_new_log (plan_job_id, case_log_id, step_id, 
+      step_name, case_id, case_name, 
+      log_detail, `status`, `type`, 
+      end_time, end_flag, imgname, 
+      create_by, create_time)
+    values (#{planJobId,jdbcType=BIGINT}, #{caseLogId,jdbcType=INTEGER}, #{stepId,jdbcType=BIGINT}, 
+      #{stepName,jdbcType=VARCHAR}, #{caseId,jdbcType=BIGINT}, #{caseName,jdbcType=VARCHAR}, 
+      #{logDetail,jdbcType=LONGVARCHAR}, #{status,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{endFlag,jdbcType=INTEGER}, #{imgname,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TTestStepUiNewLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_test_step_ui_new_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="planJobId != null">
+        plan_job_id,
+      </if>
+      <if test="caseLogId != null">
+        case_log_id,
+      </if>
+      <if test="stepId != null">
+        step_id,
+      </if>
+      <if test="stepName != null and stepName != ''">
+        step_name,
+      </if>
+      <if test="caseId != null">
+        case_id,
+      </if>
+      <if test="caseName != null and caseName != ''">
+        case_name,
+      </if>
+      <if test="logDetail != null and logDetail != ''">
+        log_detail,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="endFlag != null">
+        end_flag,
+      </if>
+      <if test="imgname != null and imgname != ''">
+        imgname,
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="planJobId != null">
+        #{planJobId,jdbcType=BIGINT},
+      </if>
+      <if test="caseLogId != null">
+        #{caseLogId,jdbcType=INTEGER},
+      </if>
+      <if test="stepId != null">
+        #{stepId,jdbcType=BIGINT},
+      </if>
+      <if test="stepName != null and stepName != ''">
+        #{stepName,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null">
+        #{caseId,jdbcType=BIGINT},
+      </if>
+      <if test="caseName != null and caseName != ''">
+        #{caseName,jdbcType=VARCHAR},
+      </if>
+      <if test="logDetail != null and logDetail != ''">
+        #{logDetail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endFlag != null">
+        #{endFlag,jdbcType=INTEGER},
+      </if>
+      <if test="imgname != null and imgname != ''">
+        #{imgname,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.TTestStepUiNewLog">
+    <!--@mbg.generated-->
+    update t_test_step_ui_new_log
+    <set>
+      <if test="planJobId != null">
+        plan_job_id = #{planJobId,jdbcType=BIGINT},
+      </if>
+      <if test="caseLogId != null">
+        case_log_id = #{caseLogId,jdbcType=INTEGER},
+      </if>
+      <if test="stepId != null">
+        step_id = #{stepId,jdbcType=BIGINT},
+      </if>
+      <if test="stepName != null and stepName != ''">
+        step_name = #{stepName,jdbcType=VARCHAR},
+      </if>
+      <if test="caseId != null">
+        case_id = #{caseId,jdbcType=BIGINT},
+      </if>
+      <if test="caseName != null and caseName != ''">
+        case_name = #{caseName,jdbcType=VARCHAR},
+      </if>
+      <if test="logDetail != null and logDetail != ''">
+        log_detail = #{logDetail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endFlag != null">
+        end_flag = #{endFlag,jdbcType=INTEGER},
+      </if>
+      <if test="imgname != null and imgname != ''">
+        imgname = #{imgname,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rabbit.model.TTestStepUiNewLog">
+    <!--@mbg.generated-->
+    update t_test_step_ui_new_log
+    set plan_job_id = #{planJobId,jdbcType=BIGINT},
+      case_log_id = #{caseLogId,jdbcType=INTEGER},
+      step_id = #{stepId,jdbcType=BIGINT},
+      step_name = #{stepName,jdbcType=VARCHAR},
+      case_id = #{caseId,jdbcType=BIGINT},
+      case_name = #{caseName,jdbcType=VARCHAR},
+      log_detail = #{logDetail,jdbcType=LONGVARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      `type` = #{type,jdbcType=INTEGER},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      end_flag = #{endFlag,jdbcType=INTEGER},
+      imgname = #{imgname,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-29-->
+  <delete id="deleteByPlanJobId">
+        delete from t_test_step_ui_new_log
+        where plan_job_id=#{planJobId,jdbcType=BIGINT}
+    </delete>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-29-->
+  <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_test_step_ui_new_log
+        where 1=1
+        <if test="id != null">
+            and id=#{id,jdbcType=BIGINT}
+        </if>
+        <if test="planJobId != null">
+            and plan_job_id=#{planJobId,jdbcType=BIGINT}
+        </if>
+        <if test="caseLogId != null">
+            and case_log_id=#{caseLogId,jdbcType=INTEGER}
+        </if>
+        <if test="stepId != null">
+            and step_id=#{stepId,jdbcType=BIGINT}
+        </if>
+        <if test="stepName != null and stepName != ''">
+            and step_name=#{stepName,jdbcType=VARCHAR}
+        </if>
+        <if test="caseId != null">
+            and case_id=#{caseId,jdbcType=BIGINT}
+        </if>
+        <if test="caseName != null and caseName != ''">
+            and case_name=#{caseName,jdbcType=VARCHAR}
+        </if>
+        <if test="logDetail != null and logDetail != ''">
+            and log_detail=#{logDetail,jdbcType=LONGVARCHAR}
+        </if>
+        <if test="status != null">
+            and `status`=#{status,jdbcType=INTEGER}
+        </if>
+        <if test="type != null">
+            and `type`=#{type,jdbcType=INTEGER}
+        </if>
+        <if test="endTime != null">
+            and end_time=#{endTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="endFlag != null">
+            and end_flag=#{endFlag,jdbcType=INTEGER}
+        </if>
+        <if test="imgname != null and imgname != ''">
+            and imgname=#{imgname,jdbcType=VARCHAR}
+        </if>
+        <if test="createBy != null and createBy != ''">
+            and create_by=#{createBy,jdbcType=VARCHAR}
+        </if>
+        <if test="createTime != null">
+            and create_time=#{createTime,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-12-16-->
+  <select id="findByPlanJobId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_test_step_ui_new_log
+        where plan_job_id=#{planJobId,jdbcType=BIGINT}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-05-20-->
+  <select id="findByCaseLogId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_test_step_ui_new_log
+        where case_log_id=#{caseLogId,jdbcType=INTEGER}
+    </select>
+</mapper>

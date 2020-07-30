@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.TApiMapper">
+    <resultMap id="BaseResultMap" type="com.rabbit.model.TApi">
+        <!--@mbg.generated-->
+        <!--@Table t_api-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="labels" jdbcType="LONGVARCHAR" property="labels"/>
+        <result column="project_id" jdbcType="BIGINT" property="projectId"/>
+        <result column="api_suite_id" jdbcType="BIGINT" property="apiSuiteId"/>
+        <result column="method" jdbcType="VARCHAR" property="method"/>
+        <result column="env_id" jdbcType="BIGINT" property="envId"/>
+        <result column="domain" jdbcType="VARCHAR" property="domain"/>
+        <result column="path" jdbcType="LONGVARCHAR" property="path"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="remark" jdbcType="LONGVARCHAR" property="remark"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="before_excs" jdbcType="LONGVARCHAR" property="beforeExcs"
+                typeHandler="com.rabbit.typehandler.ActionListTypeHandler"/>
+        <result column="req_header" jdbcType="LONGVARCHAR" property="reqHeader"
+                typeHandler="com.rabbit.typehandler.HeaderListTypeHandler"/>
+        <result column="req_query" jdbcType="LONGVARCHAR" property="reqQuery"
+                typeHandler="com.rabbit.typehandler.QueryListTypeHandler"/>
+        <result column="req_body_data" jdbcType="LONGVARCHAR" property="reqBodyData"
+                typeHandler="com.rabbit.typehandler.BodyDataListTypeHandler"/>
+        <result column="req_body_json" jdbcType="LONGVARCHAR" property="reqBodyJson"/>
+        <result column="req_body_type" jdbcType="VARCHAR" property="reqBodyType"/>
+        <result column="req_extract" jdbcType="LONGVARCHAR" property="reqExtract"
+                typeHandler="com.rabbit.typehandler.ExtractListTypeHandler"/>
+        <result column="req_assert" jdbcType="LONGVARCHAR" property="reqAssert"
+                typeHandler="com.rabbit.typehandler.AssertListTypeHandler"/>
+        <result column="debug_rsp" jdbcType="VARCHAR" property="debugRsp"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `name`, labels, project_id, api_suite_id, `method`, env_id, `domain`, `path`,
+        `type`, remark, `status`, before_excs, req_header, req_query, req_body_data, req_body_json,
+        req_body_type, req_extract, req_assert, debug_rsp, create_by, create_time, update_by,
+        update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from t_api
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from t_api
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TApi" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_api (`name`, labels, project_id,
+        api_suite_id, `method`, env_id,
+        `domain`, `path`, `type`,
+        remark, `status`, before_excs,
+        req_header,
+        req_query,
+        req_body_data,
+        req_body_json, req_body_type, req_extract,
+        req_assert,
+        debug_rsp, create_by, create_time,
+        update_by, update_time)
+        values (#{name,jdbcType=VARCHAR}, #{labels,jdbcType=LONGVARCHAR}, #{projectId,jdbcType=BIGINT},
+        #{apiSuiteId,jdbcType=BIGINT}, #{method,jdbcType=VARCHAR}, #{envId,jdbcType=BIGINT},
+        #{domain,jdbcType=VARCHAR}, #{path,jdbcType=LONGVARCHAR}, #{type,jdbcType=INTEGER},
+        #{remark,jdbcType=LONGVARCHAR}, #{status,jdbcType=INTEGER},
+        #{beforeExcs,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ActionListTypeHandler},
+        #{reqHeader,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.HeaderListTypeHandler},
+        #{reqQuery,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.QueryListTypeHandler},
+        #{reqBodyData,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.BodyDataListTypeHandler},
+        #{reqBodyJson,jdbcType=LONGVARCHAR}, #{reqBodyType,jdbcType=VARCHAR},
+        #{reqExtract,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ExtractListTypeHandler},
+        #{reqAssert,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.AssertListTypeHandler},
+        #{debugRsp,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+        #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TApi"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_api
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                `name`,
+            </if>
+            <if test="labels != null and labels != ''">
+                labels,
+            </if>
+            <if test="projectId != null">
+                project_id,
+            </if>
+            <if test="apiSuiteId != null">
+                api_suite_id,
+            </if>
+            <if test="method != null and method != ''">
+                `method`,
+            </if>
+            <if test="envId != null">
+                env_id,
+            </if>
+            <if test="domain != null and domain != ''">
+                `domain`,
+            </if>
+            <if test="path != null and path != ''">
+                `path`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="remark != null and remark != ''">
+                remark,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="beforeExcs != null">
+                before_excs,
+            </if>
+            <if test="reqHeader != null">
+                req_header,
+            </if>
+            <if test="reqQuery != null">
+                req_query,
+            </if>
+            <if test="reqBodyData != null">
+                req_body_data,
+            </if>
+            <if test="reqBodyJson != null and reqBodyJson != ''">
+                req_body_json,
+            </if>
+            <if test="reqBodyType != null and reqBodyType != ''">
+                req_body_type,
+            </if>
+            <if test="reqExtract != null">
+                req_extract,
+            </if>
+            <if test="reqAssert != null">
+                req_assert,
+            </if>
+            <if test="debugRsp != null and debugRsp != ''">
+                debug_rsp,
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="labels != null and labels != ''">
+                #{labels,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="projectId != null">
+                #{projectId,jdbcType=BIGINT},
+            </if>
+            <if test="apiSuiteId != null">
+                #{apiSuiteId,jdbcType=BIGINT},
+            </if>
+            <if test="method != null and method != ''">
+                #{method,jdbcType=VARCHAR},
+            </if>
+            <if test="envId != null">
+                #{envId,jdbcType=BIGINT},
+            </if>
+            <if test="domain != null and domain != ''">
+                #{domain,jdbcType=VARCHAR},
+            </if>
+            <if test="path != null and path != ''">
+                #{path,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null and remark != ''">
+                #{remark,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="beforeExcs != null">
+                #{beforeExcs,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ActionListTypeHandler},
+            </if>
+            <if test="reqHeader != null">
+                #{reqHeader,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.HeaderListTypeHandler},
+            </if>
+            <if test="reqQuery != null">
+                #{reqQuery,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.QueryListTypeHandler},
+            </if>
+            <if test="reqBodyData != null">
+                #{reqBodyData,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.BodyDataListTypeHandler},
+            </if>
+            <if test="reqBodyJson != null and reqBodyJson != ''">
+                #{reqBodyJson,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="reqBodyType != null and reqBodyType != ''">
+                #{reqBodyType,jdbcType=VARCHAR},
+            </if>
+            <if test="reqExtract != null">
+                #{reqExtract,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ExtractListTypeHandler},
+            </if>
+            <if test="reqAssert != null">
+                #{reqAssert,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.AssertListTypeHandler},
+            </if>
+            <if test="debugRsp != null and debugRsp != ''">
+                #{debugRsp,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.TApi">
+        <!--@mbg.generated-->
+        update t_api
+        <set>
+            <if test="name != null and name != ''">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="labels != null and labels != ''">
+                labels = #{labels,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="projectId != null">
+                project_id = #{projectId,jdbcType=BIGINT},
+            </if>
+            <if test="apiSuiteId != null">
+                api_suite_id = #{apiSuiteId,jdbcType=BIGINT},
+            </if>
+            <if test="method != null and method != ''">
+                `method` = #{method,jdbcType=VARCHAR},
+            </if>
+            <if test="envId != null">
+                env_id = #{envId,jdbcType=BIGINT},
+            </if>
+            <if test="domain != null and domain != ''">
+                `domain` = #{domain,jdbcType=VARCHAR},
+            </if>
+            <if test="path != null and path != ''">
+                `path` = #{path,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="beforeExcs != null">
+                before_excs =
+                #{beforeExcs,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ActionListTypeHandler},
+            </if>
+            <if test="reqHeader != null">
+                req_header = #{reqHeader,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.HeaderListTypeHandler},
+            </if>
+            <if test="reqQuery != null">
+                req_query = #{reqQuery,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.QueryListTypeHandler},
+            </if>
+            <if test="reqBodyData != null">
+                req_body_data =
+                #{reqBodyData,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.BodyDataListTypeHandler},
+            </if>
+            <if test="reqBodyJson != null and reqBodyJson != ''">
+                req_body_json = #{reqBodyJson,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="reqBodyType != null and reqBodyType != ''">
+                req_body_type = #{reqBodyType,jdbcType=VARCHAR},
+            </if>
+            <if test="reqExtract != null">
+                req_extract =
+                #{reqExtract,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ExtractListTypeHandler},
+            </if>
+            <if test="reqAssert != null">
+                req_assert = #{reqAssert,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.AssertListTypeHandler},
+            </if>
+            <if test="debugRsp != null and debugRsp != ''">
+                debug_rsp = #{debugRsp,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.rabbit.model.TApi">
+        <!--@mbg.generated-->
+        update t_api
+        set `name` = #{name,jdbcType=VARCHAR},
+        labels = #{labels,jdbcType=LONGVARCHAR},
+        project_id = #{projectId,jdbcType=BIGINT},
+        api_suite_id = #{apiSuiteId,jdbcType=BIGINT},
+        `method` = #{method,jdbcType=VARCHAR},
+        env_id = #{envId,jdbcType=BIGINT},
+        `domain` = #{domain,jdbcType=VARCHAR},
+        `path` = #{path,jdbcType=LONGVARCHAR},
+        `type` = #{type,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=LONGVARCHAR},
+        `status` = #{status,jdbcType=INTEGER},
+        before_excs = #{beforeExcs,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ActionListTypeHandler},
+        req_header = #{reqHeader,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.HeaderListTypeHandler},
+        req_query = #{reqQuery,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.QueryListTypeHandler},
+        req_body_data = #{reqBodyData,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.BodyDataListTypeHandler},
+        req_body_json = #{reqBodyJson,jdbcType=LONGVARCHAR},
+        req_body_type = #{reqBodyType,jdbcType=VARCHAR},
+        req_extract = #{reqExtract,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ExtractListTypeHandler},
+        req_assert = #{reqAssert,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.AssertListTypeHandler},
+        debug_rsp = #{debugRsp,jdbcType=VARCHAR},
+        create_by = #{createBy,jdbcType=VARCHAR},
+        update_by = #{updateBy,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-17-->
+    <select id="findByProjectId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_api
+        where project_id=#{projectId,jdbcType=BIGINT}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-17-->
+    <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_api
+        <where>
+            <if test="id != null">
+                and id=#{id,jdbcType=BIGINT}
+            </if>
+            <if test="name != null and name != ''">
+                and `name`like concat('%', #{name}, '%')
+            </if>
+            <if test="labels != null and labels != ''">
+                and labels=#{labels,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="projectId != null">
+                and project_id=#{projectId,jdbcType=BIGINT}
+            </if>
+            <if test="apiSuiteId != null">
+                and api_suite_id=#{apiSuiteId,jdbcType=BIGINT}
+            </if>
+            <if test="method != null and method != ''">
+                and `method`=#{method,jdbcType=VARCHAR}
+            </if>
+            <if test="domain != null and domain != ''">
+                and `domain`=#{domain,jdbcType=VARCHAR}
+            </if>
+            <if test="type != null">
+                and `type`=#{type,jdbcType=INTEGER}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark like concat('%', #{remark}, '%')
+            </if>
+            <if test="status != null">
+                and `status`=#{status,jdbcType=INTEGER}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by=#{createBy,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time=#{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by=#{updateBy,jdbcType=VARCHAR}
+            </if>
+            <if test="updateTime != null">
+                and update_time=#{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-17-->
+    <select id="findByNameAndProjectId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_api
+        where `name`=#{name,jdbcType=VARCHAR} and project_id=#{projectId,jdbcType=BIGINT}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-17-->
+    <select id="findByNameAndProjectIdAndIdNot" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_api
+        where `name`=#{name,jdbcType=VARCHAR} and project_id=#{projectId,jdbcType=BIGINT} and id <![CDATA[<>]]>
+        #{notId,jdbcType=BIGINT}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-17-->
+    <select id="findByApiSuiteId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_api
+        where api_suite_id=#{apiSuiteId,jdbcType=BIGINT}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-17-->
+    <delete id="deleteByApiSuiteId">
+    delete from t_api
+    where api_suite_id=#{apiSuiteId,jdbcType=BIGINT}
+  </delete>
+</mapper>

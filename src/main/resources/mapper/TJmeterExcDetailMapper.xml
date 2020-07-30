@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.TJmeterExcDetailMapper">
+  <resultMap id="BaseResultMap" type="com.rabbit.model.TJmeterExcDetail">
+    <!--@mbg.generated-->
+    <!--@Table t_jmeter_exc_detail-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="task_id" jdbcType="BIGINT" property="taskId" />
+    <result column="jmeter_id" jdbcType="BIGINT" property="jmeterId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="meta_validation" jdbcType="LONGVARCHAR" property="metaValidation" />
+    <result column="meta_url" jdbcType="VARCHAR" property="metaUrl" />
+    <result column="meta_request_headers" jdbcType="LONGVARCHAR" property="metaRequestHeaders" />
+    <result column="meta_request_body" jdbcType="LONGVARCHAR" property="metaRequestBody" />
+    <result column="meta_request_at" jdbcType="TIMESTAMP" property="metaRequestAt" />
+    <result column="meta_cookies" jdbcType="LONGVARCHAR" property="metaCookies" />
+    <result column="meta_method" jdbcType="VARCHAR" property="metaMethod" />
+    <result column="meta_status_code" jdbcType="VARCHAR" property="metaStatusCode" />
+    <result column="meta_response_headers" jdbcType="LONGVARCHAR" property="metaResponseHeaders" />
+    <result column="meta_response_body" jdbcType="LONGVARCHAR" property="metaResponseBody" />
+    <result column="meta_response_time" jdbcType="BIGINT" property="metaResponseTime" />
+    <result column="meta_extracted_vars" jdbcType="LONGVARCHAR" property="metaExtractedVars" />
+    <result column="attachment" jdbcType="VARCHAR" property="attachment" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, task_id, jmeter_id, `type`, meta_validation, meta_url, meta_request_headers, 
+    meta_request_body, meta_request_at, meta_cookies, meta_method, meta_status_code, 
+    meta_response_headers, meta_response_body, meta_response_time, meta_extracted_vars, 
+    attachment, `status`, remark, create_by, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_jmeter_exc_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_jmeter_exc_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TJmeterExcDetail" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_jmeter_exc_detail (`name`, task_id, jmeter_id, 
+      `type`, meta_validation, meta_url, 
+      meta_request_headers, meta_request_body, 
+      meta_request_at, meta_cookies, meta_method, 
+      meta_status_code, meta_response_headers, 
+      meta_response_body, meta_response_time, 
+      meta_extracted_vars, attachment, `status`, 
+      remark, create_by, create_time
+      )
+    values (#{name,jdbcType=VARCHAR}, #{taskId,jdbcType=BIGINT}, #{jmeterId,jdbcType=BIGINT}, 
+      #{type,jdbcType=INTEGER}, #{metaValidation,jdbcType=LONGVARCHAR}, #{metaUrl,jdbcType=VARCHAR}, 
+      #{metaRequestHeaders,jdbcType=LONGVARCHAR}, #{metaRequestBody,jdbcType=LONGVARCHAR}, 
+      #{metaRequestAt,jdbcType=TIMESTAMP}, #{metaCookies,jdbcType=LONGVARCHAR}, #{metaMethod,jdbcType=VARCHAR}, 
+      #{metaStatusCode,jdbcType=VARCHAR}, #{metaResponseHeaders,jdbcType=LONGVARCHAR}, 
+      #{metaResponseBody,jdbcType=LONGVARCHAR}, #{metaResponseTime,jdbcType=BIGINT}, 
+      #{metaExtractedVars,jdbcType=LONGVARCHAR}, #{attachment,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TJmeterExcDetail" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_jmeter_exc_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null and name != ''">
+        `name`,
+      </if>
+      <if test="taskId != null">
+        task_id,
+      </if>
+      <if test="jmeterId != null">
+        jmeter_id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="metaValidation != null and metaValidation != ''">
+        meta_validation,
+      </if>
+      <if test="metaUrl != null and metaUrl != ''">
+        meta_url,
+      </if>
+      <if test="metaRequestHeaders != null and metaRequestHeaders != ''">
+        meta_request_headers,
+      </if>
+      <if test="metaRequestBody != null and metaRequestBody != ''">
+        meta_request_body,
+      </if>
+      <if test="metaRequestAt != null">
+        meta_request_at,
+      </if>
+      <if test="metaCookies != null and metaCookies != ''">
+        meta_cookies,
+      </if>
+      <if test="metaMethod != null and metaMethod != ''">
+        meta_method,
+      </if>
+      <if test="metaStatusCode != null and metaStatusCode != ''">
+        meta_status_code,
+      </if>
+      <if test="metaResponseHeaders != null and metaResponseHeaders != ''">
+        meta_response_headers,
+      </if>
+      <if test="metaResponseBody != null and metaResponseBody != ''">
+        meta_response_body,
+      </if>
+      <if test="metaResponseTime != null">
+        meta_response_time,
+      </if>
+      <if test="metaExtractedVars != null and metaExtractedVars != ''">
+        meta_extracted_vars,
+      </if>
+      <if test="attachment != null and attachment != ''">
+        attachment,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="remark != null and remark != ''">
+        remark,
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null and name != ''">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="taskId != null">
+        #{taskId,jdbcType=BIGINT},
+      </if>
+      <if test="jmeterId != null">
+        #{jmeterId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="metaValidation != null and metaValidation != ''">
+        #{metaValidation,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaUrl != null and metaUrl != ''">
+        #{metaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="metaRequestHeaders != null and metaRequestHeaders != ''">
+        #{metaRequestHeaders,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaRequestBody != null and metaRequestBody != ''">
+        #{metaRequestBody,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaRequestAt != null">
+        #{metaRequestAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="metaCookies != null and metaCookies != ''">
+        #{metaCookies,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaMethod != null and metaMethod != ''">
+        #{metaMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="metaStatusCode != null and metaStatusCode != ''">
+        #{metaStatusCode,jdbcType=VARCHAR},
+      </if>
+      <if test="metaResponseHeaders != null and metaResponseHeaders != ''">
+        #{metaResponseHeaders,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaResponseBody != null and metaResponseBody != ''">
+        #{metaResponseBody,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaResponseTime != null">
+        #{metaResponseTime,jdbcType=BIGINT},
+      </if>
+      <if test="metaExtractedVars != null and metaExtractedVars != ''">
+        #{metaExtractedVars,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attachment != null and attachment != ''">
+        #{attachment,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null and remark != ''">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.TJmeterExcDetail">
+    <!--@mbg.generated-->
+    update t_jmeter_exc_detail
+    <set>
+      <if test="name != null and name != ''">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="taskId != null">
+        task_id = #{taskId,jdbcType=BIGINT},
+      </if>
+      <if test="jmeterId != null">
+        jmeter_id = #{jmeterId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="metaValidation != null and metaValidation != ''">
+        meta_validation = #{metaValidation,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaUrl != null and metaUrl != ''">
+        meta_url = #{metaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="metaRequestHeaders != null and metaRequestHeaders != ''">
+        meta_request_headers = #{metaRequestHeaders,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaRequestBody != null and metaRequestBody != ''">
+        meta_request_body = #{metaRequestBody,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaRequestAt != null">
+        meta_request_at = #{metaRequestAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="metaCookies != null and metaCookies != ''">
+        meta_cookies = #{metaCookies,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaMethod != null and metaMethod != ''">
+        meta_method = #{metaMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="metaStatusCode != null and metaStatusCode != ''">
+        meta_status_code = #{metaStatusCode,jdbcType=VARCHAR},
+      </if>
+      <if test="metaResponseHeaders != null and metaResponseHeaders != ''">
+        meta_response_headers = #{metaResponseHeaders,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaResponseBody != null and metaResponseBody != ''">
+        meta_response_body = #{metaResponseBody,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="metaResponseTime != null">
+        meta_response_time = #{metaResponseTime,jdbcType=BIGINT},
+      </if>
+      <if test="metaExtractedVars != null and metaExtractedVars != ''">
+        meta_extracted_vars = #{metaExtractedVars,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="attachment != null and attachment != ''">
+        attachment = #{attachment,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null and remark != ''">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rabbit.model.TJmeterExcDetail">
+    <!--@mbg.generated-->
+    update t_jmeter_exc_detail
+    set `name` = #{name,jdbcType=VARCHAR},
+      task_id = #{taskId,jdbcType=BIGINT},
+      jmeter_id = #{jmeterId,jdbcType=BIGINT},
+      `type` = #{type,jdbcType=INTEGER},
+      meta_validation = #{metaValidation,jdbcType=LONGVARCHAR},
+      meta_url = #{metaUrl,jdbcType=VARCHAR},
+      meta_request_headers = #{metaRequestHeaders,jdbcType=LONGVARCHAR},
+      meta_request_body = #{metaRequestBody,jdbcType=LONGVARCHAR},
+      meta_request_at = #{metaRequestAt,jdbcType=TIMESTAMP},
+      meta_cookies = #{metaCookies,jdbcType=LONGVARCHAR},
+      meta_method = #{metaMethod,jdbcType=VARCHAR},
+      meta_status_code = #{metaStatusCode,jdbcType=VARCHAR},
+      meta_response_headers = #{metaResponseHeaders,jdbcType=LONGVARCHAR},
+      meta_response_body = #{metaResponseBody,jdbcType=LONGVARCHAR},
+      meta_response_time = #{metaResponseTime,jdbcType=BIGINT},
+      meta_extracted_vars = #{metaExtractedVars,jdbcType=LONGVARCHAR},
+      attachment = #{attachment,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

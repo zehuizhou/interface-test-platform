@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.TTestcaseApiMapper">
+    <resultMap id="BaseResultMap" type="com.rabbit.model.TTestcaseApi">
+        <!--@mbg.generated-->
+        <!--@Table t_testcase_api-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="env_id" jdbcType="BIGINT" property="envId"/>
+        <result column="before_excs" jdbcType="LONGVARCHAR" property="beforeExcs"
+                typeHandler="com.rabbit.typehandler.ActionListTypeHandler"/>
+        <result column="project_id" jdbcType="BIGINT" property="projectId"/>
+        <result column="timout_time" jdbcType="BIGINT" property="timoutTime"/>
+        <result column="fail_continue" jdbcType="INTEGER" property="failContinue"/>
+        <result column="flags" jdbcType="VARCHAR" property="flags"/>
+        <result column="params" jdbcType="LONGVARCHAR" property="params"
+                typeHandler="com.rabbit.typehandler.ParamListTypeHandler"/>
+        <result column="case_vars" jdbcType="LONGVARCHAR" property="caseVars"
+                typeHandler="com.rabbit.typehandler.CaseVarListTypeHandler"/>
+        <result column="case_type" jdbcType="INTEGER" property="caseType"/>
+        <result column="remark" jdbcType="LONGVARCHAR" property="remark"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `name`, env_id, before_excs, project_id, timout_time, fail_continue, flags, params,
+        case_vars, case_type, remark, create_by, update_by, create_time, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from t_testcase_api
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from t_testcase_api
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TTestcaseApi"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_testcase_api (`name`, env_id, before_excs,
+        project_id, timout_time, fail_continue,
+        flags, params,
+        case_vars,
+        case_type, remark, create_by,
+        update_by, create_time, update_time
+        )
+        values (#{name,jdbcType=VARCHAR}, #{envId,jdbcType=BIGINT},
+        #{beforeExcs,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ActionListTypeHandler},
+        #{projectId,jdbcType=BIGINT}, #{timoutTime,jdbcType=BIGINT}, #{failContinue,jdbcType=INTEGER},
+        #{flags,jdbcType=VARCHAR},
+        #{params,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ParamListTypeHandler},
+        #{caseVars,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.CaseVarListTypeHandler},
+        #{caseType,jdbcType=INTEGER}, #{remark,jdbcType=LONGVARCHAR}, #{createBy,jdbcType=VARCHAR},
+        #{updateBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TTestcaseApi"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_testcase_api
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                `name`,
+            </if>
+            <if test="envId != null">
+                env_id,
+            </if>
+            <if test="beforeExcs != null">
+                before_excs,
+            </if>
+            <if test="projectId != null">
+                project_id,
+            </if>
+            <if test="timoutTime != null">
+                timout_time,
+            </if>
+            <if test="failContinue != null">
+                fail_continue,
+            </if>
+            <if test="flags != null and flags != ''">
+                flags,
+            </if>
+            <if test="params != null">
+                params,
+            </if>
+            <if test="caseVars != null">
+                case_vars,
+            </if>
+            <if test="caseType != null">
+                case_type,
+            </if>
+            <if test="remark != null and remark != ''">
+                remark,
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by,
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="envId != null">
+                #{envId,jdbcType=BIGINT},
+            </if>
+            <if test="beforeExcs != null">
+                #{beforeExcs,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ActionListTypeHandler},
+            </if>
+            <if test="projectId != null">
+                #{projectId,jdbcType=BIGINT},
+            </if>
+            <if test="timoutTime != null">
+                #{timoutTime,jdbcType=BIGINT},
+            </if>
+            <if test="failContinue != null">
+                #{failContinue,jdbcType=INTEGER},
+            </if>
+            <if test="flags != null and flags != ''">
+                #{flags,jdbcType=VARCHAR},
+            </if>
+            <if test="params != null">
+                #{params,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ParamListTypeHandler},
+            </if>
+            <if test="caseVars != null">
+                #{caseVars,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.CaseVarListTypeHandler},
+            </if>
+            <if test="caseType != null">
+                #{caseType,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null and remark != ''">
+                #{remark,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.TTestcaseApi">
+        <!--@mbg.generated-->
+        update t_testcase_api
+        <set>
+            <if test="name != null and name != ''">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="envId != null">
+                env_id = #{envId,jdbcType=BIGINT},
+            </if>
+            <if test="beforeExcs != null">
+                before_excs =
+                #{beforeExcs,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ActionListTypeHandler},
+            </if>
+            <if test="projectId != null">
+                project_id = #{projectId,jdbcType=BIGINT},
+            </if>
+            <if test="timoutTime != null">
+                timout_time = #{timoutTime,jdbcType=BIGINT},
+            </if>
+            <if test="failContinue != null">
+                fail_continue = #{failContinue,jdbcType=INTEGER},
+            </if>
+            <if test="flags != null and flags != ''">
+                flags = #{flags,jdbcType=VARCHAR},
+            </if>
+            <if test="params != null">
+                params = #{params,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ParamListTypeHandler},
+            </if>
+            <if test="caseVars != null">
+                case_vars = #{caseVars,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.CaseVarListTypeHandler},
+            </if>
+            <if test="caseType != null">
+                case_type = #{caseType,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.rabbit.model.TTestcaseApi">
+        <!--@mbg.generated-->
+        update t_testcase_api
+        set `name` = #{name,jdbcType=VARCHAR},
+        env_id = #{envId,jdbcType=BIGINT},
+        before_excs = #{beforeExcs,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ActionListTypeHandler},
+        project_id = #{projectId,jdbcType=BIGINT},
+        timout_time = #{timoutTime,jdbcType=BIGINT},
+        fail_continue = #{failContinue,jdbcType=INTEGER},
+        flags = #{flags,jdbcType=VARCHAR},
+        params = #{params,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.ParamListTypeHandler},
+        case_vars = #{caseVars,jdbcType=LONGVARCHAR,typeHandler=com.rabbit.typehandler.CaseVarListTypeHandler},
+        case_type = #{caseType,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=LONGVARCHAR},
+        create_by = #{createBy,jdbcType=VARCHAR},
+        update_by = #{updateBy,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2020-02-14-->
+    <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_testcase_api
+        <where>
+            <if test="id != null">
+                and id=#{id,jdbcType=BIGINT}
+            </if>
+            <if test="name != null and name != ''">
+                and `name`like concat('%',#{name,jdbcType=VARCHAR},'%')
+            </if>
+            <if test="projectId != null">
+                and project_id=#{projectId,jdbcType=BIGINT}
+            </if>
+            <if test="timoutTime != null">
+                and timout_time=#{timoutTime,jdbcType=BIGINT}
+            </if>
+            <if test="failContinue != null">
+                and fail_continue=#{failContinue,jdbcType=INTEGER}
+            </if>
+            <if test="flags != null and flags != ''">
+                <bind name="bindeName" value="flags.split(',')"/>
+                <foreach collection="bindeName" item="item" index="index" open="and (" close=")">
+                    <if test="index == 0">
+                        FIND_IN_SET(#{item},flags)
+                    </if>
+                    <if test="index != 0">
+                        or FIND_IN_SET(#{item},flags)
+                    </if>
+                </foreach>
+            </if>
+            <if test="params != null">
+                and params=#{params,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="caseVars != null">
+                and case_vars=#{caseVars,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="caseType != null">
+                and case_type=#{caseType,jdbcType=INTEGER}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark=#{remark,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by=#{createBy,jdbcType=VARCHAR}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by=#{updateBy,jdbcType=VARCHAR}
+            </if>
+            <if test="createTime != null">
+                and create_time=#{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="updateTime != null">
+                and update_time=#{updateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2020-02-14-->
+    <select id="findByCaseTypeAndProjectId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_testcase_api
+        where case_type=#{caseType,jdbcType=INTEGER} and project_id=#{projectId,jdbcType=BIGINT}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2020-02-17-->
+    <select id="selectByIdAndCaseType" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_testcase_api
+        where id=#{id,jdbcType=BIGINT} and case_type=#{caseType,jdbcType=INTEGER}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2020-02-20-->
+    <select id="findByProjectIdAndName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_testcase_api
+        where project_id=#{projectId,jdbcType=BIGINT} and `name`=#{name,jdbcType=VARCHAR}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2020-02-20-->
+    <select id="findByProjectIdAndNameAndIdNot" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_testcase_api
+        where project_id=#{projectId,jdbcType=BIGINT} and `name`=#{name,jdbcType=VARCHAR} and id <![CDATA[<>]]>
+        #{notId,jdbcType=BIGINT}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.PageElementMapper">
+    <resultMap id="BaseResultMap" type="com.rabbit.model.PageElement">
+        <!--@mbg.generated-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="page_id" jdbcType="BIGINT" property="pageId"/>
+        <result column="element_name" jdbcType="VARCHAR" property="elementName"/>
+        <result column="by_type" jdbcType="VARCHAR" property="byType"/>
+        <result column="by_value" jdbcType="VARCHAR" property="byValue"/>
+        <result column="is_enable" jdbcType="INTEGER" property="isEnable"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, page_id, element_name, by_type, by_value, is_enable, remark, create_by, create_time,
+        update_by, update_time
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from t_page_element
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from t_page_element
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.PageElement"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_page_element
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pageId != null">
+                page_id,
+            </if>
+            <if test="elementName != null and elementName != ''">
+                element_name,
+            </if>
+            <if test="byType != null and byType != ''">
+                by_type,
+            </if>
+            <if test="byValue != null and byValue != ''">
+                by_value,
+            </if>
+            <if test="isEnable != null">
+                is_enable,
+            </if>
+            <if test="remark != null and remark != ''">
+                remark,
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by,
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pageId != null">
+                #{pageId,jdbcType=BIGINT},
+            </if>
+            <if test="elementName != null and elementName != ''">
+                #{elementName,jdbcType=VARCHAR},
+            </if>
+            <if test="byType != null and byType != ''">
+                #{byType,jdbcType=VARCHAR},
+            </if>
+            <if test="byValue != null and byValue != ''">
+                #{byValue,jdbcType=VARCHAR},
+            </if>
+            <if test="isEnable != null">
+                #{isEnable,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null and remark != ''">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.PageElement">
+        <!--@mbg.generated-->
+        update t_page_element
+        <set>
+            <if test="pageId != null">
+                page_id = #{pageId,jdbcType=BIGINT},
+            </if>
+            <if test="elementName != null and elementName != ''">
+                element_name = #{elementName,jdbcType=VARCHAR},
+            </if>
+            <if test="byType != null and byType != ''">
+                by_type = #{byType,jdbcType=VARCHAR},
+            </if>
+            <if test="byValue != null and byValue != ''">
+                by_value = #{byValue,jdbcType=VARCHAR},
+            </if>
+            <if test="isEnable != null">
+                is_enable = #{isEnable,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.rabbit.model.PageElement">
+        <!--@mbg.generated-->
+        update t_page_element
+        set page_id = #{pageId,jdbcType=BIGINT},
+        element_name = #{elementName,jdbcType=VARCHAR},
+        by_type = #{byType,jdbcType=VARCHAR},
+        by_value = #{byValue,jdbcType=VARCHAR},
+        is_enable = #{isEnable,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR},
+        create_by = #{createBy,jdbcType=VARCHAR},
+        update_by = #{updateBy,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-05-23-->
+    <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_page_element
+        where 1=1
+        <if test="id != null">
+            and id=#{id,jdbcType=BIGINT}
+        </if>
+        <if test="pageId != null">
+            and page_id = #{pageId,jdbcType=BIGINT}
+        </if>
+        <if test="elementName != null and elementName != ''">
+            and element_name like concat('%', #{elementName}, '%')
+        </if>
+        <if test="byType != null and byType != ''">
+            and by_type=#{byType,jdbcType=VARCHAR}
+        </if>
+        <if test="byValue != null and byValue != ''">
+            and `by_value`=#{byValue,jdbcType=VARCHAR}
+        </if>
+        <if test="isEnable != null">
+            and is_enable=#{isEnable,jdbcType=INTEGER}
+        </if>
+        <if test="remark != null and remark != ''">
+            and remark=#{remark,jdbcType=VARCHAR}
+        </if>
+        <if test="createBy != null and createBy != ''">
+            and create_by=#{createBy,jdbcType=VARCHAR}
+        </if>
+        <if test="createTime != null">
+            and create_time=#{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateBy != null and updateBy != ''">
+            and update_by=#{updateBy,jdbcType=VARCHAR}
+        </if>
+        <if test="updateTime != null">
+            and update_time=#{updateTime,jdbcType=TIMESTAMP}
+        </if>
+        order by create_time desc
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-05-31-->
+    <select id="findByPageIdAndElementName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_page_element
+        where page_id=#{pageId,jdbcType=BIGINT} and element_name=#{elementName,jdbcType=VARCHAR}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-05-31-->
+    <select id="findByPageIdAndElementNameAndIdNot" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_page_element
+        where page_id=#{pageId,jdbcType=BIGINT} and element_name=#{elementName,jdbcType=VARCHAR} and id <![CDATA[<>]]>
+        #{notId,jdbcType=BIGINT}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-06-02-->
+    <delete id="deleteByPageId">
+        delete from t_page_element
+        where page_id = #{pageId,jdbcType=BIGINT}
+    </delete>
+
+    <!--auto generated by MybatisCodeHelper on 2019-06-02-->
+    <select id="findByPageId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_page_element
+        where page_id=#{pageId,jdbcType=BIGINT}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2020-06-05-->
+    <insert id="insertList" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_page_element(
+        page_id,
+        element_name,
+        by_type,
+        by_value,
+        is_enable,
+        remark
+        )VALUES
+        <foreach collection="list" item="element" index="index" separator=",">
+            (
+            #{element.pageId,jdbcType=BIGINT},
+            #{element.elementName,jdbcType=VARCHAR},
+            #{element.byType,jdbcType=VARCHAR},
+            #{element.byValue,jdbcType=VARCHAR},
+            #{element.isEnable,jdbcType=INTEGER},
+            #{element.remark,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+</mapper>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.SysDictValueMapper">
+  <resultMap id="BaseResultMap" type="com.rabbit.model.SysDictValue">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="dict_id" jdbcType="BIGINT" property="dictId" />
+    <result column="key" jdbcType="VARCHAR" property="key" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="remark2" jdbcType="VARCHAR" property="remark2" />
+    <result column="is_enable" jdbcType="INTEGER" property="isEnable" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, dict_id, `key`, `name`, remark, remark2, is_enable, create_by, create_time, update_by, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_dict_value
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from sys_dict_value
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.SysDictValue" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_dict_value
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        dict_id,
+      </if>
+      <if test="key != null and key != ''">
+        `key`,
+      </if>
+      <if test="name != null and name != ''">
+        `name`,
+      </if>
+      <if test="remark != null and remark != ''">
+        remark,
+      </if>
+      <if test="remark2 != null and remark2 != ''">
+        remark2,
+      </if>
+      <if test="isEnable != null">
+        is_enable,
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dictId != null">
+        #{dictId,jdbcType=BIGINT},
+      </if>
+      <if test="key != null and key != ''">
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null and name != ''">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null and remark != ''">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null and remark2 != ''">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.SysDictValue">
+    <!--@mbg.generated-->
+    update sys_dict_value
+    <set>
+      <if test="dictId != null">
+        dict_id = #{dictId,jdbcType=BIGINT},
+      </if>
+      <if test="key != null and key != ''">
+        `key` = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null and name != ''">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null and remark != ''">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null and remark2 != ''">
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        is_enable = #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rabbit.model.SysDictValue">
+    <!--@mbg.generated-->
+    update sys_dict_value
+    set dict_id = #{dictId,jdbcType=BIGINT},
+      `key` = #{key,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR},
+      is_enable = #{isEnable,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-06-17-->
+  <select id="findByDictId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_dict_value
+    where dict_id=#{dictId,jdbcType=BIGINT}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-06-17-->
+  <select id="findByDictIdAndKey" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_dict_value
+    where dict_id=#{dictId,jdbcType=BIGINT} and `key`=#{key,jdbcType=VARCHAR}
+  </select>
+
+
+<!--auto generated by MybatisCodeHelper on 2019-06-17-->
+  <select id="findByDictIdAndKeyAndIdNot" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sys_dict_value
+    where dict_id=#{dictId,jdbcType=BIGINT} and `key`=#{key,jdbcType=VARCHAR} and id <![CDATA[<>]]>
+    #{notId,jdbcType=BIGINT}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-12-06-->
+  <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict_value
+        where 1=1
+        <if test="id != null">
+            and id=#{id,jdbcType=BIGINT}
+        </if>
+        <if test="dictId != null">
+            and dict_id=#{dictId,jdbcType=BIGINT}
+        </if>
+        <if test="key != null and key != ''">
+            and `key`=#{key,jdbcType=VARCHAR}
+        </if>
+        <if test="name != null and name != ''">
+            and `name`=#{name,jdbcType=VARCHAR}
+        </if>
+        <if test="remark != null and remark != ''">
+            and remark=#{remark,jdbcType=VARCHAR}
+        </if>
+        <if test="remark2 != null and remark2 != ''">
+            and remark2=#{remark2,jdbcType=VARCHAR}
+        </if>
+        <if test="isEnable != null">
+            and is_enable=#{isEnable,jdbcType=INTEGER}
+        </if>
+        <if test="createBy != null and createBy != ''">
+            and create_by=#{createBy,jdbcType=VARCHAR}
+        </if>
+        <if test="createTime != null">
+            and create_time=#{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateBy != null and updateBy != ''">
+            and update_by=#{updateBy,jdbcType=VARCHAR}
+        </if>
+        <if test="updateTime != null">
+            and update_time=#{updateTime,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+
+</mapper>

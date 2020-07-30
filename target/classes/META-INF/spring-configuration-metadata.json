@@ -1,0 +1,38 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.rabbit.config.RabbitConfig",
+      "name": "rabbit",
+      "type": "com.rabbit.config.RabbitConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.rabbit.config.RabbitConfig",
+      "name": "rabbit.appfile",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.rabbit.config.RabbitConfig",
+      "name": "rabbit.jmeterfile",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.rabbit.config.RabbitConfig",
+      "name": "rabbit.profile",
+      "description": "文件映射路径",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.rabbit.config.RabbitConfig",
+      "name": "rabbit.systemfile",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.rabbit.config.RabbitConfig",
+      "name": "rabbit.uifile",
+      "type": "java.lang.String"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.rabbit.rabbitplatformserver.RabbitPlatformServerApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 16.437 s <<< FAILURE! - in com.rabbit.rabbitplatformserver.RabbitPlatformServerApplicationTests
+contextLoads(com.rabbit.rabbitplatformserver.RabbitPlatformServerApplicationTests)  Time elapsed: 0.056 s  <<< ERROR!
+java.lang.IllegalArgumentException: 用户不存在
+	at com.rabbit.rabbitplatformserver.RabbitPlatformServerApplicationTests.contextLoads(RabbitPlatformServerApplicationTests.java:35)
+

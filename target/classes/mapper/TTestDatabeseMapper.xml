@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.TTestDatabeseMapper">
+  <resultMap id="BaseResultMap" type="com.rabbit.model.TTestDatabese">
+    <!--@mbg.generated-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="connect_url" jdbcType="VARCHAR" property="connectUrl" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="project_id" jdbcType="BIGINT" property="projectId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, connect_url, username, `password`, project_id, `type`, `status`, remark, 
+    create_by, create_time, update_by, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_test_databese
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_test_databese
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TTestDatabese" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_test_databese (`name`, connect_url, username, 
+      `password`, project_id, `type`, 
+      `status`, remark, create_by, 
+      create_time, update_by, update_time
+      )
+    values (#{name,jdbcType=VARCHAR}, #{connectUrl,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{projectId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TTestDatabese" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_test_databese
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null and name != ''">
+        `name`,
+      </if>
+      <if test="connectUrl != null and connectUrl != ''">
+        connect_url,
+      </if>
+      <if test="username != null and username != ''">
+        username,
+      </if>
+      <if test="password != null and password != ''">
+        `password`,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="remark != null and remark != ''">
+        remark,
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null and name != ''">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="connectUrl != null and connectUrl != ''">
+        #{connectUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null and username != ''">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null and password != ''">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null and remark != ''">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.TTestDatabese">
+    <!--@mbg.generated-->
+    update t_test_databese
+    <set>
+      <if test="name != null and name != ''">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="connectUrl != null and connectUrl != ''">
+        connect_url = #{connectUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null and username != ''">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null and password != ''">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null">
+        project_id = #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null and remark != ''">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null and createBy != ''">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null and updateBy != ''">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rabbit.model.TTestDatabese">
+    <!--@mbg.generated-->
+    update t_test_databese
+    set `name` = #{name,jdbcType=VARCHAR},
+      connect_url = #{connectUrl,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=BIGINT},
+      `type` = #{type,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      update_by = #{updateBy,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-09-10-->
+  <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_test_databese
+        where 1=1
+        <if test="id != null">
+            and id=#{id,jdbcType=INTEGER}
+        </if>
+        <if test="name != null and name != ''">
+            and `name`=#{name,jdbcType=VARCHAR}
+        </if>
+        <if test="connectUrl != null and connectUrl != ''">
+            and connect_url=#{connectUrl,jdbcType=VARCHAR}
+        </if>
+        <if test="username != null and username != ''">
+            and username=#{username,jdbcType=VARCHAR}
+        </if>
+        <if test="password != null and password != ''">
+            and `password`=#{password,jdbcType=VARCHAR}
+        </if>
+        <if test="projectId != null">
+            and project_id=#{projectId,jdbcType=BIGINT}
+        </if>
+        <if test="type != null">
+            and `type`=#{type,jdbcType=INTEGER}
+        </if>
+        <if test="status != null">
+            and `status`=#{status,jdbcType=INTEGER}
+        </if>
+        <if test="remark != null and remark != ''">
+            and remark=#{remark,jdbcType=VARCHAR}
+        </if>
+        <if test="createBy != null and createBy != ''">
+            and create_by=#{createBy,jdbcType=VARCHAR}
+        </if>
+        <if test="createTime != null">
+            and create_time=#{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateBy != null and updateBy != ''">
+            and update_by=#{updateBy,jdbcType=VARCHAR}
+        </if>
+        <if test="updateTime != null">
+            and update_time=#{updateTime,jdbcType=TIMESTAMP}
+        </if>
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-09-10-->
+  <select id="findByProjectId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_test_databese
+    where project_id=#{projectId,jdbcType=BIGINT}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-09-10-->
+  <select id="findByNameAndProjectId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_test_databese
+    where `name`=#{name,jdbcType=VARCHAR} and project_id=#{projectId,jdbcType=BIGINT}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-09-10-->
+  <select id="findByNameAndProjectIdAndIdNot" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from t_test_databese
+    where `name`=#{name,jdbcType=VARCHAR} and project_id=#{projectId,jdbcType=BIGINT} and id <![CDATA[<>]]>
+    #{notId,jdbcType=INTEGER}
+  </select>
+</mapper>

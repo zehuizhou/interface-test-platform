@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rabbit.dao.TJmeterScriptMapper">
+    <resultMap id="BaseResultMap" type="com.rabbit.model.TJmeterScript">
+        <!--@mbg.generated-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="project_id" jdbcType="BIGINT" property="projectId"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="script_content" jdbcType="LONGVARCHAR" property="scriptContent"/>
+        <result column="data_path" jdbcType="VARCHAR" property="dataPath"/>
+        <result column="script_path" jdbcType="VARCHAR" property="scriptPath"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="debug_status" jdbcType="INTEGER" property="debugStatus"/>
+        <result column="debug_start_time" jdbcType="TIMESTAMP" property="debugStartTime"/>
+        <result column="debug_end_time" jdbcType="TIMESTAMP" property="debugEndTime"/>
+        <result column="debug_by" jdbcType="VARCHAR" property="debugBy"/>
+        <result column="debug_success" jdbcType="INTEGER" property="debugSuccess"/>
+        <result column="debug_total" jdbcType="INTEGER" property="debugTotal"/>
+        <result column="debug_fail" jdbcType="INTEGER" property="debugFail"/>
+        <result column="debug_duration" jdbcType="BIGINT" property="debugDuration"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, `name`, project_id, `type`, script_content, data_path, script_path, remark, create_by,
+        create_time, update_by, update_time, debug_status, debug_start_time, debug_end_time,
+        debug_by, debug_success, debug_total, debug_fail, debug_duration
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from t_jmeter_script
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from t_jmeter_script
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TJmeterScript"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_jmeter_script (`name`, project_id, `type`,
+        script_content, data_path, script_path,
+        remark, create_by, create_time,
+        update_by, update_time, debug_status,
+        debug_start_time, debug_end_time, debug_by,
+        debug_success, debug_total, debug_fail,
+        debug_duration)
+        values (#{name,jdbcType=VARCHAR}, #{projectId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER},
+        #{scriptContent,jdbcType=LONGVARCHAR}, #{dataPath,jdbcType=VARCHAR}, #{scriptPath,jdbcType=VARCHAR},
+        #{remark,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+        #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{debugStatus,jdbcType=INTEGER},
+        #{debugStartTime,jdbcType=TIMESTAMP}, #{debugEndTime,jdbcType=TIMESTAMP}, #{debugBy,jdbcType=VARCHAR},
+        #{debugSuccess,jdbcType=INTEGER}, #{debugTotal,jdbcType=INTEGER}, #{debugFail,jdbcType=INTEGER},
+        #{debugDuration,jdbcType=BIGINT})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.rabbit.model.TJmeterScript"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into t_jmeter_script
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                `name`,
+            </if>
+            <if test="projectId != null">
+                project_id,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="scriptContent != null and scriptContent != ''">
+                script_content,
+            </if>
+            <if test="dataPath != null and dataPath != ''">
+                data_path,
+            </if>
+            <if test="scriptPath != null and scriptPath != ''">
+                script_path,
+            </if>
+            <if test="remark != null and remark != ''">
+                remark,
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="debugStatus != null">
+                debug_status,
+            </if>
+            <if test="debugStartTime != null">
+                debug_start_time,
+            </if>
+            <if test="debugEndTime != null">
+                debug_end_time,
+            </if>
+            <if test="debugBy != null and debugBy != ''">
+                debug_by,
+            </if>
+            <if test="debugSuccess != null">
+                debug_success,
+            </if>
+            <if test="debugTotal != null">
+                debug_total,
+            </if>
+            <if test="debugFail != null">
+                debug_fail,
+            </if>
+            <if test="debugDuration != null">
+                debug_duration,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="projectId != null">
+                #{projectId,jdbcType=BIGINT},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="scriptContent != null and scriptContent != ''">
+                #{scriptContent,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="dataPath != null and dataPath != ''">
+                #{dataPath,jdbcType=VARCHAR},
+            </if>
+            <if test="scriptPath != null and scriptPath != ''">
+                #{scriptPath,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null and remark != ''">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="debugStatus != null">
+                #{debugStatus,jdbcType=INTEGER},
+            </if>
+            <if test="debugStartTime != null">
+                #{debugStartTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="debugEndTime != null">
+                #{debugEndTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="debugBy != null and debugBy != ''">
+                #{debugBy,jdbcType=VARCHAR},
+            </if>
+            <if test="debugSuccess != null">
+                #{debugSuccess,jdbcType=INTEGER},
+            </if>
+            <if test="debugTotal != null">
+                #{debugTotal,jdbcType=INTEGER},
+            </if>
+            <if test="debugFail != null">
+                #{debugFail,jdbcType=INTEGER},
+            </if>
+            <if test="debugDuration != null">
+                #{debugDuration,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.rabbit.model.TJmeterScript">
+        <!--@mbg.generated-->
+        update t_jmeter_script
+        <set>
+            <if test="name != null and name != ''">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="projectId != null">
+                project_id = #{projectId,jdbcType=BIGINT},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="scriptContent != null and scriptContent != ''">
+                script_content = #{scriptContent,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="dataPath != null and dataPath != ''">
+                data_path = #{dataPath,jdbcType=VARCHAR},
+            </if>
+            <if test="scriptPath != null and scriptPath != ''">
+                script_path = #{scriptPath,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="debugStatus != null">
+                debug_status = #{debugStatus,jdbcType=INTEGER},
+            </if>
+            <if test="debugStartTime != null">
+                debug_start_time = #{debugStartTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="debugEndTime != null">
+                debug_end_time = #{debugEndTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="debugBy != null and debugBy != ''">
+                debug_by = #{debugBy,jdbcType=VARCHAR},
+            </if>
+            <if test="debugSuccess != null">
+                debug_success = #{debugSuccess,jdbcType=INTEGER},
+            </if>
+            <if test="debugTotal != null">
+                debug_total = #{debugTotal,jdbcType=INTEGER},
+            </if>
+            <if test="debugFail != null">
+                debug_fail = #{debugFail,jdbcType=INTEGER},
+            </if>
+            <if test="debugDuration != null">
+                debug_duration = #{debugDuration,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.rabbit.model.TJmeterScript">
+        <!--@mbg.generated-->
+        update t_jmeter_script
+        set `name` = #{name,jdbcType=VARCHAR},
+        project_id = #{projectId,jdbcType=BIGINT},
+        `type` = #{type,jdbcType=INTEGER},
+        script_content = #{scriptContent,jdbcType=LONGVARCHAR},
+        data_path = #{dataPath,jdbcType=VARCHAR},
+        script_path = #{scriptPath,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        create_by = #{createBy,jdbcType=VARCHAR},
+        update_by = #{updateBy,jdbcType=VARCHAR},
+        debug_status = #{debugStatus,jdbcType=INTEGER},
+        debug_start_time = #{debugStartTime,jdbcType=TIMESTAMP},
+        debug_end_time = #{debugEndTime,jdbcType=TIMESTAMP},
+        debug_by = #{debugBy,jdbcType=VARCHAR},
+        debug_success = #{debugSuccess,jdbcType=INTEGER},
+        debug_total = #{debugTotal,jdbcType=INTEGER},
+        debug_fail = #{debugFail,jdbcType=INTEGER},
+        debug_duration = #{debugDuration,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <update id="updateByPrimaryKeySelectiveCustomer" parameterType="com.rabbit.model.TJmeterScript">
+        <!--@mbg.generated-->
+        update t_jmeter_script
+        <set>
+            `name` = #{name,jdbcType=VARCHAR},
+            project_id = #{projectId,jdbcType=BIGINT},
+            <if test="type != null">
+                `type` = #{type,jdbcType=INTEGER},
+            </if>
+            script_content = #{scriptContent,jdbcType=LONGVARCHAR},
+            data_path = #{dataPath,jdbcType=VARCHAR},
+            <if test="scriptPath != null and scriptPath != ''">
+                script_path = #{scriptPath,jdbcType=VARCHAR},
+            </if>
+            remark = #{remark,jdbcType=VARCHAR},
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="debugStatus != null">
+                debug_status = #{debugStatus,jdbcType=INTEGER},
+            </if>
+            <if test="debugStartTime != null">
+                debug_start_time = #{debugStartTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="debugEndTime != null">
+                debug_end_time = #{debugEndTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="debugBy != null and debugBy != ''">
+                debug_by = #{debugBy,jdbcType=VARCHAR},
+            </if>
+            <if test="debugSuccess != null">
+                debug_success = #{debugSuccess,jdbcType=INTEGER},
+            </if>
+            <if test="debugTotal != null">
+                debug_total = #{debugTotal,jdbcType=INTEGER},
+            </if>
+            <if test="debugFail != null">
+                debug_fail = #{debugFail,jdbcType=INTEGER},
+            </if>
+            <if test="debugDuration != null">
+                debug_duration = #{debugDuration,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-09-19-->
+    <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_jmeter_script
+        where 1=1
+        <if test="id != null">
+            and id=#{id,jdbcType=BIGINT}
+        </if>
+        <if test="name != null and name != ''">
+            and `name`=#{name,jdbcType=VARCHAR}
+        </if>
+        <if test="projectId != null">
+            and project_id=#{projectId,jdbcType=BIGINT}
+        </if>
+        <if test="type != null">
+            and `type`=#{type,jdbcType=INTEGER}
+        </if>
+        <if test="scriptContent != null and scriptContent != ''">
+            and script_content=#{scriptContent,jdbcType=LONGVARCHAR}
+        </if>
+        <if test="dataPath != null and dataPath != ''">
+            and data_path=#{dataPath,jdbcType=VARCHAR}
+        </if>
+        <if test="scriptPath != null and scriptPath != ''">
+            and script_path=#{scriptPath,jdbcType=VARCHAR}
+        </if>
+        <if test="remark != null and remark != ''">
+            and remark=#{remark,jdbcType=VARCHAR}
+        </if>
+        <if test="createBy != null and createBy != ''">
+            and create_by=#{createBy,jdbcType=VARCHAR}
+        </if>
+        <if test="createTime != null">
+            and create_time=#{createTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateBy != null and updateBy != ''">
+            and update_by=#{updateBy,jdbcType=VARCHAR}
+        </if>
+        <if test="updateTime != null">
+            and update_time=#{updateTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="debugStatus != null">
+            and debug_status=#{debugStatus,jdbcType=INTEGER}
+        </if>
+        <if test="debugStartTime != null">
+            and debug_start_time=#{debugStartTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="debugEndTime != null">
+            and debug_end_time=#{debugEndTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="debugBy != null and debugBy != ''">
+            and debug_by=#{debugBy,jdbcType=VARCHAR}
+        </if>
+        <if test="debugSuccess != null">
+            and debug_success=#{debugSuccess,jdbcType=INTEGER}
+        </if>
+        <if test="debugTotal != null">
+            and debug_total=#{debugTotal,jdbcType=INTEGER}
+        </if>
+        <if test="debugFail != null">
+            and debug_fail=#{debugFail,jdbcType=INTEGER}
+        </if>
+        <if test="debugDuration != null">
+            and debug_duration=#{debugDuration,jdbcType=BIGINT}
+        </if>
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-09-19-->
+    <select id="findByProjectId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_jmeter_script
+        where project_id=#{projectId,jdbcType=BIGINT}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-09-19-->
+    <select id="findByNameAndProjectId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_jmeter_script
+        where `name`=#{name,jdbcType=VARCHAR} and project_id=#{projectId,jdbcType=BIGINT}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-09-19-->
+    <select id="findByNameAndProjectIdAndIdNot" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_jmeter_script
+        where `name`=#{name,jdbcType=VARCHAR} and project_id=#{projectId,jdbcType=BIGINT} and id <![CDATA[<>]]>
+        #{notId,jdbcType=BIGINT}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-09-26-->
+    <select id="findByName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_jmeter_script
+        where `name`=#{name,jdbcType=VARCHAR}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-09-27-->
+    <select id="findByIdAndProjectId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_jmeter_script
+        where id=#{id,jdbcType=BIGINT} and project_id=#{projectId,jdbcType=BIGINT}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-09-27-->
+    <update id="updateDataPathById">
+        update t_jmeter_script
+        set data_path=#{updatedDataPath,jdbcType=VARCHAR}
+        where id=#{id,jdbcType=BIGINT}
+    </update>
+</mapper>
